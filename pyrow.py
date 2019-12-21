@@ -2,7 +2,7 @@
 import usb.core
 import usb.util
 from usb import USBError
-import csafe_cmd
+from . import csafe_cmd
 import datetime
 import time
 import sys
@@ -31,9 +31,9 @@ class pyrow(object):
                 if erg.is_kernel_driver_active(INTERFACE):
                     erg.detach_kernel_driver(INTERFACE)
                 else:
-                    print "DEBUG: usb kernel driver not on " + sys.platform
+                    print("DEBUG: usb kernel driver not on " + sys.platform)
             except:
-                print "EXCEPTION"
+                print("EXCEPTION")
 
         #Claim interface (Needs Testing To See If Necessary)
         usb.util.claim_interface(erg, INTERFACE)
