@@ -1,4 +1,4 @@
-from . import pyrow
+from pyrow import pyrow
 import time
 
 if __name__ == '__main__':
