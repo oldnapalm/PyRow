@@ -1,8 +1,9 @@
-from pyrow import pyrow
+from datetime import datetime
 import time
 
-if __name__ == '__main__':
+from pyrow import pyrow
 
+def main():
     #Connecting to erg
     ergs = list(pyrow.find())
     if len(ergs) == 0:
@@ -12,7 +13,7 @@ if __name__ == '__main__':
     print("Connected to erg.")
 
     #Open and prepare file
-    write_file = open('workout.csv', 'w')
+    write_file = open(f'workout_{datetime.now()}.csv', 'w')
     write_file.write('Time, Distance, SPM, Pace, Force Plot\n')
 
     #Loop until workout has begun
@@ -58,3 +59,7 @@ if __name__ == '__main__':
 
     write_file.close()
     print("Workout has ended")
+
+
+if __name__ == '__main__':
+    main()
